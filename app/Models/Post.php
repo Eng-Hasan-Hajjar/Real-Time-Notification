@@ -7,8 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     protected $table = "posts";
+    
     protected $fillable = ['title', 'content', 'user_id', 'created_at', 'updated_at'];
+    
     protected $hidden = ['created_at', 'updated_at'];
+    
     public $timestamps = true;
 
 
