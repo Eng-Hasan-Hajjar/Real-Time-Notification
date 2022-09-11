@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Offers;
 
 use App\Http\Controllers\Controller;
+
 use App\Models\Offer;
+
 use Illuminate\Http\Request;
 
 class OfferController extends Controller
@@ -28,6 +30,7 @@ class OfferController extends Controller
         $offer = Offer::findOrFail($offer_id);
 
         if (request('id') && request('resourcePath')) {
+            
              $payment_status = $this->getPaymentStatus(request('id'), request('resourcePath'));
               if (isset($payment_status['id'])) { //success payment id -> transaction bank id
                   $showSuccessPaymentMessage = true;
@@ -60,6 +63,7 @@ class OfferController extends Controller
         if (curl_errno($ch)) {
             return curl_error($ch);
         }
+        
         curl_close($ch);
         return json_decode($responseData, true);
 
