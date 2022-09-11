@@ -15,6 +15,7 @@ class User extends Authenticatable
      *
      * @var array
      */
+    
     protected $fillable = [
         'name', 'email', 'password',
     ];
@@ -24,6 +25,7 @@ class User extends Authenticatable
      *
      * @var array
      */
+    
     protected $hidden = [
         'password', 'remember_token',
     ];
@@ -42,6 +44,7 @@ class User extends Authenticatable
         return $this -> hasMany('App\Models\Post','user_id','id');
     }
 
+    
     public function comments(){
         return $this ->  belongsTo('App\Models\Comment','user_id','id');
     }
