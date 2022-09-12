@@ -16,7 +16,9 @@ define('PAGINATION_COUNT',10);
 */
 
 Route::get('/', function () {
+    
     return view('welcome');
+    
 });
 
 Auth::routes();
@@ -29,8 +31,11 @@ Route::post('comment', 'HomeController@saveComment')->name('comment.save');
 ################Begin paymentGateways Routes ########################
 
 Route::group(['prefix' => 'offers', 'middleware' => 'auth','namespace' =>'Offers'], function () {
+    
     Route::get('/', 'OfferController@index')->name('offers.all');
+    
     Route::get('details/{offer_id}', 'OfferController@show')->name('offers.show');
+    
 });
 
 Route::get('get-checkout-id', 'PaymentProviderController@getCheckOutId')->name('offers.checkout');
