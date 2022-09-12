@@ -14,6 +14,7 @@ class HomeController extends Controller
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -24,6 +25,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    
     public function index()
     {
          $posts = Post::with(['comments' => function($q){
@@ -47,6 +49,7 @@ class HomeController extends Controller
           ];
 
            ///   save  notify in database table ////
+        
            //my new task
 
          event(new NewNotification($data));
